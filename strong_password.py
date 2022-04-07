@@ -1,6 +1,10 @@
 import unittest
 
 def is_strong_password(password: str) -> bool:
+
+    if len(password) < 6:
+        return False
+
     return True
 
 
@@ -13,7 +17,7 @@ class StrongPasswordShould(unittest.TestCase):
 
     def test_has_as_a_minimum_six_characteres(self):
         self.assertFalse(is_strong_password("23"))
-        self.assertFalse(is_strong_password("12_Mar"))
+        self.assertTrue(is_strong_password("12_Mar"))
 
 
 
