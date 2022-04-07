@@ -6,7 +6,10 @@ def is_strong_password(password: str) -> bool:
     if len(password) < 6:
         return False
 
-    if not (re.findall("[0-9]", password)):
+    if not(re.findall("[0-9]", password)):
+        return False
+
+    if not(re.findall("[A-Z]", password)):
         return False
 
     return True
@@ -26,7 +29,7 @@ class StrongPasswordShould(unittest.TestCase):
         self.assertFalse(is_strong_password("dsfjkd__"))
 
     def test_has_some_capital_letter(self):
-        self.assertFalse("21dfdsf3_3_3")
+        self.assertFalse(is_strong_password("21dfdsf3_3_3"))
 
 
 
