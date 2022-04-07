@@ -1,6 +1,7 @@
 import unittest
 
-#def is_strong_password(password: str) -> bool:
+def is_strong_password(password: str) -> bool:
+    return True
 
 
 
