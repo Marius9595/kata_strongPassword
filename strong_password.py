@@ -25,6 +25,9 @@ class StrongPasswordShould(unittest.TestCase):
     def test_has_some_number(self):
         self.assertFalse(is_strong_password("dsfjkd__"))
 
+    def test_has_some_capital_letter(self):
+        self.assertFalse("21dfdsf3_3_3")
+
 
 
 
