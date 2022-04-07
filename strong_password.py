@@ -6,7 +6,8 @@ def is_strong_password(password: str) -> bool:
     has_not_the_minimun_number_of_characteres = len(password) < 6
     has_not_some_number = not(re.findall("[0-9]", password))
     has_not_capital_letters = not(re.findall("[A-Z]", password))
-    has_not_non_capital_letters = not (re.findall("[a-z]", password))
+    has_not_non_capital_letters = not(re.findall("[a-z]", password))
+    has_not_some_underscores = not(re.findall("_", password))
 
     if has_not_the_minimun_number_of_characteres:
         return False
@@ -15,6 +16,8 @@ def is_strong_password(password: str) -> bool:
     if has_not_capital_letters:
         return False
     if has_not_non_capital_letters:
+        return False
+    if has_not_some_underscores:
         return False
 
     return True
@@ -40,7 +43,7 @@ class StrongPasswordShould(unittest.TestCase):
         self.assertFalse(is_strong_password("2A3_3_3F"))
 
     def test_has_some_underscore(self):
-        self.assertFalse("ssdSDF213")
+        self.assertFalse(is_strong_password("ssdSDF213"))
 
 
 
