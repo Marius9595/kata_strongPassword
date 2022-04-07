@@ -19,6 +19,9 @@ class StrongPasswordShould(unittest.TestCase):
         self.assertFalse(is_strong_password("23"))
         self.assertTrue(is_strong_password("12_Mar"))
 
+    def test_has_some_number(self):
+        self.assertFalse(is_strong_password("123456"))
+        self.assertFalse(is_strong_password("123__123"))
 
 
 
