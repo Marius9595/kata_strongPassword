@@ -39,6 +39,9 @@ class StrongPasswordShould(unittest.TestCase):
     def test_has_some_non_capital_letter(self):
         self.assertFalse(is_strong_password("2A3_3_3F"))
 
+    def test_has_some_underscore(self):
+        self.assertFalse("ssdSDF213")
+
 
 
 
